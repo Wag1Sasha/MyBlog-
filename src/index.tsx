@@ -17,32 +17,33 @@ import Post from './Pages/Post'
 function App() {
   return (
     <AppWrapper>
-      <Router>
-        <NavBar>
-          <Link to='/'>
-            <LinkWrapper>Home</LinkWrapper>
-          </Link>
-
-          <Link to='/CreatePost'>
-            <LinkWrapper>Create Post</LinkWrapper>
-          </Link>
-          <Link to='/AllPosts'>
-            <LinkWrapper>All Posts</LinkWrapper>
-          </Link>
-        </NavBar>
-
-        <Switch>
-          <Container>
-            <Route exact path='/' component={StartPage} />
-            <Route path='/AllPosts' component={AllPosts} />
-            <Route path='/CreatePost' component={CreatePost} />
-            <Route path='/Posts/:id' component={Post} />
-          </Container>
-        </Switch>
-        <Footer />
-      </Router>
+      <NavBar>
+        <Link to='/'>
+          <LinkWrapper>Home</LinkWrapper>
+        </Link>
+        <Link to='/CreatePost'>
+          <LinkWrapper>Create Post</LinkWrapper>
+        </Link>
+        <Link to='/AllPosts'>
+          <LinkWrapper>All Posts</LinkWrapper>
+        </Link>
+      </NavBar>
+      <Switch>
+        <Container>
+          <Route exact path='/' component={StartPage} />
+          <Route path='/AllPosts' component={AllPosts} />
+          <Route path='/CreatePost' component={CreatePost} />
+          <Route path='/Posts/:id' component={Post} />
+        </Container>
+      </Switch>
+      <Footer />
     </AppWrapper>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root'),
+)

@@ -22,6 +22,7 @@ function CreatePost() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: form.title, body: form.body }),
     })
+    setForm({ title: '', id: '', body: '' })
   }
 
   // function newPost(data) {
@@ -29,12 +30,10 @@ function CreatePost() {
   // }
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, title: e.target.value })
-    console.log(form)
   }
 
   const onChangeBody = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setForm({ ...form, body: e.target.value })
-    console.log(form)
   }
 
   return (
